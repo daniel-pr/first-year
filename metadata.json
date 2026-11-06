@@ -1,0 +1,6 @@
+{
+  "name": "First Year Romance - Aniversário de Namoro",
+  "description": "Site comemorativo de aniversário de namoro com contador em tempo real, galeria polaroid, player de música, carta de amor interativa e surpresa especial.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,41 @@
+=============================================================================
+PASTA DE FOTOS DO CASAL - "NOSSO PRIMEIRO ANO"
+=============================================================================
+
+COMO ADICIONAR E SUBSTITUIR AS 20 FOTOS:
+
+1. Salve as fotos do casal dentro desta pasta (/public/fotos/) com os seguintes nomes:
+   - foto-01.jpg
+   - foto-02.jpg
+   - foto-03.jpg
+   - foto-04.jpg
+   - foto-05.jpg
+   - foto-06.jpg
+   - foto-07.jpg
+   - foto-08.jpg
+   - foto-09.jpg
+   - foto-10.jpg
+   - foto-11.jpg
+   - foto-12.jpg
+   - foto-13.jpg
+   - foto-14.jpg
+   - foto-15.jpg
+   - foto-16.jpg
+   - foto-17.jpg
+   - foto-18.jpg
+   - foto-19.jpg
+   - foto-20.jpg
+
+2. FORMATOS SUPORTADOS:
+   - Arquivos .jpg ou .jpeg (ou renomeados para .jpg).
+   - Dimensões recomendadas: 800x800 a 1600x1600 pixels (orientação quadrada ou vertical 4:5 / 3:4).
+
+3. FOTOS EM DESTAQUE:
+   - Foto da Tela Inicial (Hero): Definida por padrão como /fotos/foto-01.jpg
+   - Foto da Surpresa Final: Definida por padrão como /fotos/foto-20.jpg
+   (Você pode mudar qual foto é usada em cada lugar no arquivo src/config/anniversaryConfig.ts ou no botão de personalização no rodapé do site).
+
+4. LEGENDAS E MOMENTOS:
+   - Para editar o texto de cada momento ou legenda das 20 fotos, edite o arquivo:
+     `src/config/anniversaryConfig.ts` na constante `COUPLE_PHOTOS_CONFIG`.
+=============================================================================

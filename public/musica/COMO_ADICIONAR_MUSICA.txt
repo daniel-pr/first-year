@@ -1,0 +1,26 @@
+=============================================================================
+PASTA DE MÚSICA DO CASAL - "NOSSO PRIMEIRO ANO"
+=============================================================================
+
+ARQUIVO PRINCIPAL DE ÁUDIO:
+- Nome do arquivo: nossa-musica.mp3
+- Localização: public/musica/nossa-musica.mp3
+
+COMO ADICIONAR OU SUBSTITUIR A MÚSICA:
+1. Copie o arquivo MP3 da música do casal para esta pasta (/public/musica/).
+2. Renomeie o arquivo para:
+   nossa-musica.mp3
+3. Ao recarregar o site, o player de música detectará e reproduzirá automaticamente
+   o arquivo MP3 com barra de progresso, tempo e controle de volume.
+
+COMPATIBILIDADE COM GITHUB PAGES:
+- Todos os arquivos dentro da pasta /public/ são incluídos automaticamente na compilação
+  final do Vite e enviados ao GitHub Pages.
+- O caminho do áudio no código utiliza import.meta.env.BASE_URL de forma dinâmica,
+  garantindo que funcione mesmo que o site esteja hospedado em um subdomínio ou
+  subdiretório (exemplo: https://usuario.github.io/repositorio/).
+
+PERSONALIZAÇÃO DE TÍTULO E ARTISTA:
+- No arquivo `src/config/anniversaryConfig.ts`, procure pela constante `COUPLE_MUSIC_CONFIG`
+  para alterar o título da música (ex: "Perfect", "All of Me") e o artista.
+=============================================================================
