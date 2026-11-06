@@ -7,9 +7,9 @@ import { defineConfig } from 'vite';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export default defineConfig(() => {
+export default defineConfig(({ command }) => {
   return {
-    base: '/first-year/',
+    base: process.env.VITE_BASE_PATH || (command === 'build' ? '/first-year/' : '/'),
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
