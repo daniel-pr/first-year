@@ -49,17 +49,30 @@ export interface MusicConfig {
 }
 
 /**
- * Resolve o caminho de áudio de forma dinâmica considerando o base path do Vite (essencial para GitHub Pages).
+ * Resolve o caminho de recursos estáticos (fotos, músicas) de forma dinâmica
+ * considerando o base path do Vite (essencial para GitHub Pages, ex: /first-year/).
+ * É estritamente idempotente e previne qualquer duplicação do prefixo '/first-year/'.
  */
-export function resolveAudioUrl(filePath: string): string {
+export function resolveAssetUrl(filePath: string): string {
   if (!filePath) return '';
+  // Se for URL externa, data URI ou blob URI, retorna intacta
   if (/^(https?:|data:|blob:|\/\/)/i.test(filePath)) {
     return filePath;
   }
-  const clean = filePath.startsWith('/') ? filePath.slice(1) : filePath;
+
   const base = import.meta.env.BASE_URL || '/';
+  let clean = filePath.replace(/^\/+/, '');
+
+  // Evita duplicação caso a string já venha com o base path (ex: 'first-year/fotos/foto-01.jpg')
+  const cleanBase = base.replace(/^\/+|\/+$/g, '');
+  if (cleanBase && (clean === cleanBase || clean.startsWith(`${cleanBase}/`))) {
+    clean = clean.slice(cleanBase.length).replace(/^\/+/, '');
+  }
+
   return base.endsWith('/') ? `${base}${clean}` : `${base}/${clean}`;
 }
+
+export const resolveAudioUrl = resolveAssetUrl;
 
 export interface AnniversaryConfig {
   title: string;

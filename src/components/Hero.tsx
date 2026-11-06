@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Heart, Calendar, ArrowDown, Sparkles, Camera } from 'lucide-react';
 import { useAnniversary } from '../context/AnniversaryContext';
+import { resolveAssetUrl } from '../config/anniversaryConfig';
 
 export const Hero: React.FC = () => {
   const { config } = useAnniversary();
@@ -61,7 +62,7 @@ export const Hero: React.FC = () => {
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-[#eae8e4]">
               {!imageError && config.heroPhoto ? (
                 <img
-                  src={config.heroPhoto}
+                  src={resolveAssetUrl(config.heroPhoto)}
                   alt="Foto do casal em destaque"
                   referrerPolicy="no-referrer"
                   onError={() => setImageError(true)}

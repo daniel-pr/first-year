@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Camera, X, ChevronLeft, ChevronRight, Maximize2, Sparkles, Heart } from 'lucide-react';
 import { useAnniversary } from '../context/AnniversaryContext';
+import { resolveAssetUrl } from '../config/anniversaryConfig';
 
 export const GallerySection: React.FC = () => {
   const { config } = useAnniversary();
@@ -63,7 +64,7 @@ export const GallerySection: React.FC = () => {
       [nextIdx, prevIdx].forEach(idx => {
         if (photos[idx]?.url) {
           const img = new Image();
-          img.src = photos[idx].url;
+          img.src = resolveAssetUrl(photos[idx].url);
         }
       });
     }
@@ -134,7 +135,7 @@ export const GallerySection: React.FC = () => {
                 <div className="relative aspect-square w-full overflow-hidden rounded-md bg-[#eae8e4]">
                   {!isError ? (
                     <img
-                      src={photo.url}
+                      src={resolveAssetUrl(photo.url)}
                       alt={`Foto ${photoNumberFormatted}`}
                       referrerPolicy="no-referrer"
                       onError={() => handleImageError(photo.id)}
@@ -225,7 +226,7 @@ export const GallerySection: React.FC = () => {
               <div className="relative w-full max-h-[70vh] overflow-hidden rounded-lg bg-[#eae8e4] flex items-center justify-center">
                 {!imageErrorMap[photos[activePhotoIndex].id] ? (
                   <img
-                    src={photos[activePhotoIndex].url}
+                    src={resolveAssetUrl(photos[activePhotoIndex].url)}
                     alt={photos[activePhotoIndex].caption || `Foto ${activePhotoIndex + 1}`}
                     referrerPolicy="no-referrer"
                     onError={() => handleImageError(photos[activePhotoIndex].id)}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { X, Save, RotateCcw, Upload, Plus, Trash2, Sliders, Calendar, Music, Image as ImageIcon, FileText, Check, Download, Star } from 'lucide-react';
 import { useAnniversary } from '../context/AnniversaryContext';
-import { AnniversaryConfig, PhotoMemory } from '../config/anniversaryConfig';
+import { AnniversaryConfig, PhotoMemory, resolveAssetUrl } from '../config/anniversaryConfig';
 
 export const CustomizerModal: React.FC = () => {
   const { config, updateConfig, resetToDefaults, isCustomizing, setIsCustomizing } = useAnniversary();
@@ -308,7 +308,7 @@ export const CustomizerModal: React.FC = () => {
                     <div className="flex gap-3">
                       <div className="w-20 h-20 rounded-md overflow-hidden bg-[#eae8e4] shrink-0 border border-[#d9c1c1] flex items-center justify-center">
                         <img
-                          src={photo.url}
+                          src={resolveAssetUrl(photo.url)}
                           alt={photo.caption}
                           referrerPolicy="no-referrer"
                           onError={(e) => {
